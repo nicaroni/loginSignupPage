@@ -29,6 +29,8 @@ signupBtn.addEventListener('click', (e) => {
     e.preventDefault();
     formContainer.classList.add('active');
 })
+
+//* Login 
 loginBtn.addEventListener('click', (e) => {
      e.preventDefault();
      formContainer.classList.remove('active');
