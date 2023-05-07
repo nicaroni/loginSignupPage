@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'IBM Plex Mono', monospace;
+}
+a {
+    text-decoration: none;
+}
+
+.header {
+    position: fixed;
+    height: 80px;
+    width: 100%;
+    z-index: 100;
+    padding: 0 20px;
+
+}
+
+
+
+
+.nav {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+}
+.nav,
+.nav_item {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav_logo {
+    font-size: 25px;
+}
+.nav_item {
+    column-gap: 25px;
+}
+.nav_logo,
+.nav_link,
+.button {
+    color: rgb(197, 104, 243);
+}
+.nav_link:hover {
+    color: rgb(12, 250, 171);
+}
+.button{
+    padding: 6px 24px;
+    border: 2px solid rgb(197, 104, 243) ;
+    background: transparent;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.button:active {
+    transform: scale(0.98);
+}
+/* home */
+.home {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-image: url('home.png');
+    background-size: cover;
+
+}
+.home::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease-out;
+   
+}
+.home.show::before {
+    opacity: 1;
+    pointer-events: auto;
+    
+}
+
+.form_container {
+    position: fixed;
+    max-width: 320px;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.2);
+    z-index: 101;
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s ease-out;
+}
+
+.home.show .form_container {
+   opacity: 1;
+   pointer-events: auto; 
+   transform: translate(-50%, -50%) scale(1);
+}
+.form_container h2{
+    font-style: Darumadrop;
+    font-weight: 500;
+}
+
+.signup_form {
+    display: none;
+}
+.form_container.active .signup_form {
+    display: block;
+}
+.form_container.active .login_form {
+    display: none;
+}
+
+
+.form_close{
+ position: absolute;
+ top: 10px;
+ right: 20px;
+ color: rgb(81, 81, 81);   
+ font-size: 22px;
+ opacity: 0.7;
+ cursor: pointer;
+}
+.form_container h2{
+font-size: 22px;
+text-decoration: none;
+color: rgb(12, 250, 171);
+text-align: center;
+}
+
+.input_box {
+   position: relative;
+   margin-top: 30px; 
+   width: 100%;
+   height: 40px;
+   color: rgb(12, 250, 171);
+}
+
+
+.input_box input {
+    color:  rgb(12, 250, 171);
+    padding: 8px;
+    height: 100%;
+    width: 100%;
+   border: none;
+   outline: none;
+   padding: 0 30px;
+   transition: all 0.2s ease ;
+   border-bottom: 1.5px solid rgb(12, 250, 171);
+}
+.input_box ::placeholder{
+    color: rgb(129, 234, 199);
+}
+
+.input_box input:focus{
+
+    border-color : rgb(251, 198, 251);
+}
+
+.input_box i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+.input_box i.password,
+.input_box i.email {
+    left: 0;
+    color: rgb(12, 250, 171);
+}
+.input_box input:focus ~ i.password,
+.input_box input:focus ~ i.email {
+   color : #ffbfff;
+}
+
+.input_box i.pw_hide{
+   right: 0;
+   font-size: 18px;
+   cursor: pointer;
+
+}
+
+
+.option_field {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.form_container a{
+    color:  rgb(249, 192, 255);
+    font-size: 12px;
+}
+
+.form_container a:hover {
+    text-decoration: underline;
+}
+.checkbox {
+    display: flex;
+    column-gap: 8px;
+    white-space: nowrap;
+    font-size: 12px;
+    
+}
+.checkbox input{
+    accent-color: rgb(249, 192, 255);
+}
+.checkbox label{
+    color: rgb(106, 224, 184);
+    font-size: 12px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.form_container .button{
+    background: rgb(255, 236, 131);
+    color: #ffffff;
+    margin-top: 30px;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 15px;
+    border: none;
+}
+
+.login_signup  {
+    color: rgb(12, 250, 171);
+    font-size: 12px;
+    text-align: center;
+    margin-top: 15px;
+}
+.login_signup #signup{
+    color: rgb(249, 192, 255);
+}
